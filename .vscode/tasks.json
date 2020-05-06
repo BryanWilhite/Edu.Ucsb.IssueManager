@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Edu.Ucsb.IssueManager.Web/Edu.Ucsb.IssueManager.Web.csproj",
+                "${workspaceFolder}/Edu.Ucsb.IssueManager.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

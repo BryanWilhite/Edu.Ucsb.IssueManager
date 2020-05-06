@@ -1,6 +1,5 @@
-﻿using Edu.Ucla.IssueManager.Models;
+﻿using Edu.Ucsb.IssueManager.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Edu.Ucsb.IssueManager
 {
