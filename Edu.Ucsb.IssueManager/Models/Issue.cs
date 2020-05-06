@@ -6,6 +6,10 @@ namespace Edu.Ucsb.IssueManager.Models
 
         public string Description { get; set; }
 
-        public string DisplayName { get; set; }
+        public IssueStatus Status { get; set; }
+
+        public string Title { get; set; }
+
+        public UserIssue UserIssue { get; set; }
     }
 }
