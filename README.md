@@ -8,7 +8,7 @@ When the root folder of this repo was empty we started with:
 
 ```console
 dotnet tool install --global dotnet-ef
-dotnet new webapp --auth Individual -uld -o Edu.Ucla.IssueManager.Web
+dotnet new mvc --no-https --auth Individual -uld -o Edu.Ucsb.IssueManager.Web
 ```
 
 For users on platforms that do not support `LocalDb`, edit the `Edu.Ucla.IssueManager.Web/appsettings.json` JSON file, changing `ConnectionStrings.DefaultConnection` to something like this:
@@ -22,7 +22,7 @@ For users on platforms that do not support `LocalDb`, edit the `Edu.Ucla.IssueMa
 When a SQL Server connection is configured then run migrations:
 
 ```console
-dotnet ef database update --project ./Edu.Ucla.IssueManager.Web
+dotnet ef database update --project ./Edu.Ucsb.IssueManager.Web
 ```
 
 ## related links
