@@ -19,13 +19,13 @@
             <div class="input-group-prepend">
                 <label for="description">Description</label>
             </div>
-            <textarea class="form-control" id="description"></textarea>
+            <textarea class="form-control" id="description" required></textarea>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="status1" name="status1" class="custom-control-input" value="open" />
+                        <input type="radio" id="status1" name="status1" class="custom-control-input" value="open" checked />
                         <label class="custom-control-label" for="status1">Open</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
@@ -34,8 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="col align-self-end">
+                <button disabled type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </form>
@@ -58,7 +58,9 @@
     <script>
 
     (function( $ ) {
-        console.log({$});
+        $.getJSON( 'issue/api/v1/index', data => {
+            console.log({data});
+        });
     })( jQuery );
 
     </script>

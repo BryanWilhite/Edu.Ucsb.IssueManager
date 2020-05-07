@@ -1,3 +1,4 @@
+using Edu.Ucsb.Core.Extensions;
 using Edu.Ucsb.IssueManager.Models;
 using Edu.Ucsb.IssueManager.Web.Data;
 using Microsoft.AspNetCore.Builder;
@@ -54,13 +55,18 @@ namespace Edu.Ucsb.IssueManager.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthentication();
             app.UseAuthorization();
+
+            if (!env.EnvironmentName.EqualsInvariant(AppScalars.EnvironmentNameForAutomatedTesting))
+            {
+                app.UseAuthentication();
+                app.UseHttpsRedirection();
+            }
 
             app.UseEndpoints(endpoints =>
             {

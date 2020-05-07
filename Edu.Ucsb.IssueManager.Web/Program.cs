@@ -1,4 +1,7 @@
+using System;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
 namespace Edu.Ucsb.IssueManager.Web
@@ -7,14 +10,17 @@ namespace Edu.Ucsb.IssueManager.Web
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args, builderAction: null).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+       public static IWebHostBuilder CreateWebHostBuilder(string[] args, Action<WebHostBuilderContext, IConfigurationBuilder> builderAction) =>
+            WebHost
+                .CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((builderContext, configBuilder) =>
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    builderAction?.Invoke(builderContext, configBuilder);
+                })
+                .UseStartup<Startup>()
+                ;
     }
 }

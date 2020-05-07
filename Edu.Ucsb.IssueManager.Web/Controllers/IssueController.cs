@@ -7,15 +7,14 @@ using Microsoft.Extensions.Logging;
 
 namespace Edu.Ucsb.IssueManager.Web.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("[controller]/api/v1")]
     public class IssueController : Controller
     {
         public IssueController(
-            Logger<IssueController> logger,
             IIssueManagerRepository repository)
         {
-            this._logger = logger;
+            this._logger = null;
             this._repository = repository;
             this._userId = this.User?.Identity?.Name;
         }
