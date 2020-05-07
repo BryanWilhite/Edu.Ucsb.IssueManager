@@ -7,11 +7,16 @@ namespace Edu.Ucsb.IssueManager
 {
     public class IssueManagerContext : DbContext
     {
+        public IssueManagerContext(IConfiguration configuration)
+        {
+            this._configuration = configuration;
+        }
+
         public DbSet<Issue> Issues { get; set; }
 
         public DbSet<UserIssue> UserIssues { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection"));
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +25,6 @@ namespace Edu.Ucsb.IssueManager
                 .MapUserIssue();
         }
 
-        internal IConfiguration Configuration { get; }
+        private readonly IConfiguration _configuration;
     }
 }

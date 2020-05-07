@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Edu.Ucsb.IssueManager\Edu.Ucsb.IssueManager.csproj" />
+    <ProjectReference Include="..\Edu.Ucsb.Core\Edu.Ucsb.Core.csproj" />
   </ItemGroup>
 
 </Project>
