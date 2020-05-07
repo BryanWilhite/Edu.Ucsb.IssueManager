@@ -1,8 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "UCSB Issue Manager";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" />
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="status1" name="status1" class="custom-control-input" value="open" />
+                <label class="custom-control-label" for="status1">Open</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="status2" name="status1" class="custom-control-input" value="closed" />
+                <label class="custom-control-label" for="status2">Closed</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <ul id="task-list" class="list-group">
+        <li class="list-group-item">loading...</li>
+    </ul>
 </div>
+
+@section scripts {
+
+    <script>
+
+      alert('foo');
+
+    </script>
+
+}

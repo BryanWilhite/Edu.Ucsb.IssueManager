@@ -1,3 +1,4 @@
+using Edu.Ucsb.IssueManager.Models;
 using Edu.Ucsb.IssueManager.Web.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,6 +22,8 @@ namespace Edu.Ucsb.IssueManager.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IIssueManagerRepository, IssueManagerRepository>();
+
             services.AddDbContext<IssueManagerContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));

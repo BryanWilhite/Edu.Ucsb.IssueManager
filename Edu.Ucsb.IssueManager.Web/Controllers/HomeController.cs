@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
+using Edu.Ucsb.IssueManager.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Edu.Ucsb.IssueManager.Web.Models;
 
 namespace Edu.Ucsb.IssueManager.Web.Controllers
 {
