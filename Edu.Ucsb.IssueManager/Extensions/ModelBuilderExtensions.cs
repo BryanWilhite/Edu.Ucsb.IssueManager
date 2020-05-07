@@ -28,5 +28,21 @@ namespace Edu.Ucsb.IssueManager.Extensions
 
             return builder;
         }
+
+        public static ModelBuilder MapUserIssue(this ModelBuilder builder)
+        {
+            if (builder == null) throw new ArgumentNullException(nameof(builder));
+
+            var entityTypeBuilder = builder.Entity<UserIssue>();
+
+            // Primary Key
+            entityTypeBuilder.HasKey(t => new { t.IssueId, t.UserId });
+
+            // Properties
+            entityTypeBuilder.Property(t => t.IssueId).ValueGeneratedNever();
+            entityTypeBuilder.Property(t => t.UserId).ValueGeneratedNever();
+
+            return builder;
+        }
     }
 }

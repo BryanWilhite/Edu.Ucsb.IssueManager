@@ -15,7 +15,9 @@ namespace Edu.Ucsb.IssueManager
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.MapIssue();
+            modelBuilder
+                .MapIssue()
+                .MapUserIssue();
         }
 
         internal IConfiguration Configuration { get; }
