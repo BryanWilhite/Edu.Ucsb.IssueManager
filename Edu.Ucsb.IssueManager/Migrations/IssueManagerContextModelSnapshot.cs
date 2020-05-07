@@ -26,6 +26,7 @@ namespace Edu.Ucsb.IssueManager.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(1024)")
                         .HasMaxLength(1024);
 
@@ -33,6 +34,7 @@ namespace Edu.Ucsb.IssueManager.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 

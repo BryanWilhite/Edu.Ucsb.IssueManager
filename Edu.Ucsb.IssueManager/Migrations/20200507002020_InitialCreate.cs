@@ -12,9 +12,9 @@ namespace Edu.Ucsb.IssueManager.Migrations
                 {
                     IssueId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(maxLength: 1024, nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(maxLength: 255, nullable: true)
+                    Title = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {

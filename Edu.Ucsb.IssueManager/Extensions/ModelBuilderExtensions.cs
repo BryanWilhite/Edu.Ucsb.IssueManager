@@ -17,8 +17,8 @@ namespace Edu.Ucsb.IssueManager.Extensions
 
             // Properties
             entityTypeBuilder.Property(t => t.IssueId).ValueGeneratedOnAdd();
-            entityTypeBuilder.Property(t => t.Title).HasMaxLength(255);
-            entityTypeBuilder.Property(t => t.Description).HasMaxLength(1024);
+            entityTypeBuilder.Property(t => t.Title).HasMaxLength(255).IsRequired();
+            entityTypeBuilder.Property(t => t.Description).HasMaxLength(1024).IsRequired();
 
             //Relationships
             entityTypeBuilder
@@ -39,8 +39,8 @@ namespace Edu.Ucsb.IssueManager.Extensions
             entityTypeBuilder.HasKey(t => new { t.IssueId, t.UserId });
 
             // Properties
-            entityTypeBuilder.Property(t => t.IssueId).ValueGeneratedNever();
-            entityTypeBuilder.Property(t => t.UserId).ValueGeneratedNever();
+            entityTypeBuilder.Property(t => t.IssueId).ValueGeneratedNever().IsRequired();
+            entityTypeBuilder.Property(t => t.UserId).ValueGeneratedNever().IsRequired();
 
             return builder;
         }

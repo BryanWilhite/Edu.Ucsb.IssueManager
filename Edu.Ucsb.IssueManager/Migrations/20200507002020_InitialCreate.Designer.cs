@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Edu.Ucsb.IssueManager.Migrations
 {
     [DbContext(typeof(IssueManagerContext))]
-    [Migration("20200507000142_InitialCreate")]
+    [Migration("20200507002020_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,7 @@ namespace Edu.Ucsb.IssueManager.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(1024)")
                         .HasMaxLength(1024);
 
@@ -35,6 +36,7 @@ namespace Edu.Ucsb.IssueManager.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 

@@ -11,7 +11,7 @@ namespace Edu.Ucsb.IssueManager
 
         public DbSet<UserIssue> UserIssues { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer("Server=localhost;Database=Edu.Ucla.IssueManager.Web;MultipleActiveResultSets=true;User id=SA;Password=@one#2Three;");
+        protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
