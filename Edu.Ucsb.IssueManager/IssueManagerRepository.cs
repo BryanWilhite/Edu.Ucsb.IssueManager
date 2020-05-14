@@ -77,7 +77,7 @@ namespace Edu.Ucsb.IssueManager
         public async Task<IEnumerable<Issue>> ListIssuesAsync(string userId)
         {
             return await this._db.Issues
-                .Where(i => i.UserIssue.UserId.EqualsInvariant(userId))
+                .Where(i => i.UserIssue.UserId == userId)
                 .ToArrayAsync();
         }
 
